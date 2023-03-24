@@ -1,0 +1,26 @@
+.vacation-chart {
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+}
+
+.vacation-contents-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 2vw;
+}
+
+.vacation-title {
+  margin-bottom: 3vw;
+  font-size: 20px;
+  text-align: center;
+}
+
+.remain-vacation-days {
+  font-size: 40px;
+}
+
+.vacation-days {
+  font-weight: 100;
+}
