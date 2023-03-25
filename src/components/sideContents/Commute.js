@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './sideContents.css';
 import styled from "styled-components";
 import CommuteChart from "./CommuteChart";
@@ -30,7 +30,6 @@ const AttendanceButton = styled.div`{
   font-weight: 200;
   border-radius: 8px;
   color: #1479FB;
-  
 }:hover {
   background-color: #ED2E5C;
   color: white;
@@ -38,23 +37,26 @@ const AttendanceButton = styled.div`{
 `
 
 const Commute = () => {
+  const now = new Date();
   
   const [isAttendance, setIsAttendance] = useState(false);
   const [isWorkDone, setIsWorkDone] = useState(false);
   const [attendTime, setAttendTime] = useState();
   const [absenceTime, setAbsenceTime] = useState();
   const [workTime, setWorkTime] = useState(0);
-  const now = new Date();
 
   const onClickAttendance = () => {
     setIsAttendance(!isAttendance);
+    const now = new Date();
     const attendMinutes = now.getMinutes() < 10 ? `0${now.getMinutes()}` : now.getMinutes()
     setAttendTime(`${now.getHours()}:${attendMinutes}`);
     setWorkTime(now.getHours());
+    alert('오늘도 좋은 하루 보내세요! 화이팅 💪');
   }
 
   const onClickWorkDone = () => {
     setIsWorkDone(!isWorkDone);
+    const now = new Date();
     const workDoneMinutes = now.getMinutes() < 10 ? `0${now.getMinutes()}` : now.getMinutes()
     setAbsenceTime(`${now.getHours()}:${workDoneMinutes}`);
   }

@@ -5,10 +5,12 @@ const TodoBtn = styled.div`{
   border-radius: 30px;
   height: 30px;
   width: 30px;
-  background-color: red;
+  background-color: #1479FB;
   line-height: 30px;
   margin-right: 10px;
   cursor: pointer;
+}:hover {
+  background-color: #ED2E5C;
 }
 `
 
@@ -35,8 +37,10 @@ const ScheduleItem = ({todo,todoList, setTodoList}) => {
       <TodoBtn className="todo_item-edit-btn">
         ✍️
       </TodoBtn>
+
+      
       <TodoBtn className="todo_item-delete-btn">
-        🗑
+      🗑
       </TodoBtn>
     </li>
   );

@@ -1,0 +1,86 @@
+.todo-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+}
+
+.todo-modal-section {
+  width: 450px;
+  height: 200px;
+  margin: 0 auto;
+  border: 0.1px solid #707070;
+  border-radius: 1rem;
+  background-color: #fff;
+  animation: modal-show 0.3s;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.todo-modal.todo-modal-openModal {
+  display: flex;
+  align-items: center;
+  animation: modal-bg-show 0.3s;
+}
+
+.todo-modal button {
+  outline: none;
+  cursor: pointer;
+  border: 0;
+}
+
+.todo-modal-close {
+  background-color: transparent;
+  font-size: 40px;
+  margin: 10px 0;
+  margin-right: -380px;
+}
+
+.todo-modal-area main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.todo_inputbox {
+  width: 350px;
+  height: 25px;
+  padding-left: 5px;
+}
+
+.todo_inputbox-add-btn {
+  margin-top: 25px;
+  width: 100px;
+  height: 30px;
+  border-radius: 25px;
+  background-color: #1479FB;
+  color: white;
+}
+
+.todo_inputbox-add-btn:hover {
+  background-color: #ED2E5C;
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

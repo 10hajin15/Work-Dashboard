@@ -13,37 +13,15 @@ const ScheduleBG = styled.div`{
   box-shadow: 0 5px 5px rgba(0,0,0,0.22);
 }
 `
-function randomIDGenerator() {
-  return "_" + Math.random().toString(36).substr(2, 9);
-}
+
 
 const Schedule = () => {
   const [modalTodoOpen, setModalTodoOpen] = useState(false);
 
-  const [todoList, setTodoList] = useState([
-    {
-      id: randomIDGenerator(),
-      textContent: '리액트 기초 알아보기',
-      checked: true,
-    },
-    {
-      id: randomIDGenerator(),
-      textContent: '컴포넌트 스타일링 하기',
-      checked: true,
-    },
-    {
-      id: randomIDGenerator(),
-      textContent: '투두리스트 만들기',
-      checked: false,
-    },
-  ]);
+  const [todoList, setTodoList] = useState([]);
 
   const openModal = () => {
     setModalTodoOpen(true);
-  }
-
-  const closeModal = () => {
-    setModalTodoOpen(false);
   }
 
   return (
@@ -64,7 +42,7 @@ const Schedule = () => {
       ))}
     </ul>
     </ScheduleBG>
-    <ModalTodo open={openModal} close={closeModal}></ModalTodo>
+    <ModalTodo open={modalTodoOpen} setModalTodoOpen={setModalTodoOpen} todoList={todoList} setTodoList={setTodoList}></ModalTodo>
   </>
   );
 };
