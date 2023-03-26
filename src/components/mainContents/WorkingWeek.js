@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Barchart from "./WorkingWeekBarChart";
+import WorkingWeekBarChart from "./WorkingWeekBarChart";
 
 const WorkingWeekArea = styled.div`{
   background-color: white;
@@ -12,11 +12,9 @@ const WorkingWeekArea = styled.div`{
 `
 
 const WorkingWeek = () => {
-
-
   return (
     <WorkingWeekArea>
-      <Barchart></Barchart>
+      <WorkingWeekBarChart></WorkingWeekBarChart>
     </WorkingWeekArea>
   );
 };

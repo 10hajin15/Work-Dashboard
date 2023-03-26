@@ -38,6 +38,7 @@
 .vacation-modal-title {
   font-size: 17px;
   margin-left: 7px;
+  font-weight: 500;
 }
 
 .vacation-modal button {
@@ -54,8 +55,11 @@
 
 .vacation-modal-area main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
+  margin-top: 18px;
+  font-weight: 200;
 }
 
 

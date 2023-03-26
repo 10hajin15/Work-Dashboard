@@ -2,9 +2,7 @@ import * as React from 'react';
 import { ResponsiveBar } from '@nivo/bar';
 import worktime from '../../data/worktime.js';
 
-const Barchart = () => {
-
-
+const WorkingWeekBarChart = () => {
     const workingdata = worktime.map((item) => {
         return {
             date: item.date.getDate(),
@@ -36,4 +34,4 @@ const Barchart = () => {
     );
 };
 
-export default Barchart;
+export default WorkingWeekBarChart;
