@@ -6,7 +6,8 @@ import { addDays } from 'date-fns';
 import './Vacation.css';
 import { useState } from "react";
 
-
+import { recoilVacationDaysState } from '../../state/recoilVacationDaysState';
+import { useRecoilState } from 'recoil';
 
 const VacationSection = styled.div`{
   display: flex;
@@ -31,18 +32,21 @@ const VacationContents = styled.div`{
 const pastMonth = new Date();
 
 const VacationArea = () => {
-  const defaultSelected = {
+  const [recoilVacationDays, setRecoilVacationDays] = useRecoilState(recoilVacationDaysState);
+  const defaultSelected = [
+    ...recoilVacationDays
+  ];
+
+  const [range, setRange] = useState({
     from: pastMonth,
     to: addDays(pastMonth, 0)
-  };
-
-  const [range, setRange] = useState(defaultSelected);
+  });
 
   return (
     <VacationSection>
       <VacationContents>
-        <CalendarArea pastMonth={pastMonth} range={range} setRange={setRange}></CalendarArea>
-        <Vacation range={range}></Vacation>
+        <CalendarArea range={range} pastMonth={pastMonth} defaultSelected={defaultSelected} setRange={setRange}></CalendarArea>
+        <Vacation range={range} setRange={setRange}></Vacation>
       </VacationContents>
     </VacationSection>
   );

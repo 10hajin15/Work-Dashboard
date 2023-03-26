@@ -6,6 +6,7 @@ import VacationChart from "./VacationChart";
 
 import { useRecoilState } from 'recoil';
 import { recoilVacationDaysState } from "../../state/recoilVacationDaysState";
+import worktime from "../../data/worktime";
 
 const VacationContents = styled.div`{
   display: flex;
@@ -32,8 +33,11 @@ const VacationButton = styled.button`{
 }
 `
 
-const Vacation = ({range}) => {
-  const [vacationDays, setVacationDays] = useState(15);
+const Vacation = ({range, setRange}) => {
+  const settedVacationDays = (worktime.filter((item) => item.isVacation === true)).length
+  const [vacationDays, setVacationDays] = useState(15-settedVacationDays);
+
+
   const [modalVacationOpen, setModalVacationOpen] = useState(false);
   const [recoilVacationDays, setRecoilVacationDays] = useRecoilState(recoilVacationDaysState);
 
@@ -61,7 +65,7 @@ const Vacation = ({range}) => {
         <span className="vacation-exp">달력에서 날짜를 선택한 후 연차 신청을 눌러주세요!</span>
       </div>
     </div>
-    <ModalVacation open={modalVacationOpen} setModalVacationOpen={setModalVacationOpen} vacationDays={vacationDays} setVacationDays={setVacationDays} range={range} recoilVacationDays={recoilVacationDays} setRecoilVacationDays={setRecoilVacationDays} ></ModalVacation>
+    <ModalVacation open={modalVacationOpen} setModalVacationOpen={setModalVacationOpen} vacationDays={vacationDays} setVacationDays={setVacationDays} range={range} setRange={setRange} recoilVacationDays={recoilVacationDays} setRecoilVacationDays={setRecoilVacationDays} ></ModalVacation>
     </>
   );
 };

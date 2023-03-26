@@ -1,13 +1,13 @@
 import { DayPicker } from 'react-day-picker';
-
 import 'react-day-picker/dist/style.css';
+
 import './Calendar.css';
 
 
 
 const CalendarArea = (props) => {
-  const {pastMonth, range, setRange} = props;
-  
+  const {range, pastMonth, defaultSelected, setRange} = props;
+
   return (
     <>
       <div className="calendar-sec">
@@ -16,6 +16,7 @@ const CalendarArea = (props) => {
           defaultMonth={pastMonth}
           selected={range}
           onSelect={setRange}
+          disabled={defaultSelected}
         />
       </div>
     </>

@@ -58,6 +58,7 @@
 
 .todo_item {
   flex-grow: 1;
+  font-weight: 200;
 }
 
 .gray-background {

@@ -22,6 +22,12 @@ const worktime = [
     'worktime': new Date('2023-03-16 08:30'),
     'quittingtime': new Date('2023-03-16 19:40'),
     'isVacation' : false
+  },
+  {
+    'date': new Date('2023-03-17'),
+    'worktime': null,
+    'quittingtime': null,
+    'isVacation' : false
   }
 ];
 

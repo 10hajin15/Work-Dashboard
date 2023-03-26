@@ -6,3 +6,8 @@
 .rdp-caption {
   font-size: 15px;
 }
+
+.rdp-day_disabled {
+  background-color: #ffb4c6;
+
+}

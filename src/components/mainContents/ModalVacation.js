@@ -19,25 +19,34 @@ const VacationDaysSetButton = styled.button`{
 `
 
 const ModalVacation = (props) => {
-  const {open, setModalVacationOpen, vacationDays, setVacationDays, range, recoilVacationDays, setRecoilVacationDays} = props;
+  const {open, setModalVacationOpen, vacationDays, setVacationDays, range, setRange, recoilVacationDays, setRecoilVacationDays} = props;
 
   const onClickCloseButton = () => {
     setModalVacationOpen(false);
   }
 
   const onClickSetVacationDays = () => {
-    let total =[]
-    if(range.to) {
-      for (let i = range.from.getDate(); i <= range.to.getDate(); i++) {
-        total.push(i);
+    if(vacationDays) {
+      let total =[]
+      if(range.to) {
+        for (let i = range.from.getDate(); i <= range.to.getDate(); i++) {
+          total.push(new Date(range.from.getFullYear(), range.from.getMonth(), i));
+        }
+        setVacationDays(vacationDays - (range.to.getDate() - range.from.getDate() + 1));
+      } else {
+        total = [range.from]
+        setVacationDays(vacationDays - 1);
       }
-      setVacationDays(vacationDays - (range.to.getDate() - range.from.getDate() + 1));
+      setRecoilVacationDays([...recoilVacationDays, ...total]);
+      setModalVacationOpen(false);
+      setRange();
     } else {
-      total = [range.from.getDate()]
-      setVacationDays(vacationDays - 1);
+      alert('연차를 모두 소진하셨습니다!')
     }
-    setRecoilVacationDays([...recoilVacationDays, ...total]);
+    
   }
+
+
 
   return (
     <>
@@ -58,11 +67,22 @@ const ModalVacation = (props) => {
                   </header>
                   <main>
                     <div>
-                      {range.from.getMonth()+1}월 {range.from.getDate()}일부터 {range.to.getMonth()+1}월 {range.to.getDate()}일까지 연차 신청을 하시겠습니까?
+                      {
+                        range.from && range.to
+                        ? `${range.from.getMonth()+1}월 ${range.from.getDate()}일부터 ${range.to.getMonth()+1}월 ${range.to.getDate()}일까지 연차 신청을 하시겠습니까?`
+                        : `날짜를 선택해주세요!`
+                      }
                     </div>
                     <div>
-                      <VacationDaysSetButton onClick={onClickSetVacationDays}>확인</VacationDaysSetButton>
-                      <VacationDaysSetButton onClick={onClickCloseButton}>취소</VacationDaysSetButton>
+                      {
+                        range.from && range.to
+                        ? <>
+                            <VacationDaysSetButton onClick={onClickSetVacationDays}>확인</VacationDaysSetButton>
+                            <VacationDaysSetButton onClick={onClickCloseButton}>취소</VacationDaysSetButton>
+                          </>
+                        : <VacationDaysSetButton onClick={onClickCloseButton}>확인</VacationDaysSetButton>
+                      }
+                      
                     </div>
                   </main>
                 </section>

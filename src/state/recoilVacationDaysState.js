@@ -4,7 +4,7 @@ import worktime from '../data/worktime.js'
 const recoilData = []
 worktime.filter((item) => {
   if(item.isVacation) {
-    recoilData.push(item.date.getDate())
+    recoilData.push(item.date)
   };
 })
 

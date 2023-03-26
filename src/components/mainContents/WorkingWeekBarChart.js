@@ -7,7 +7,7 @@ const WorkingWeekBarChart = () => {
         return {
             date: item.date.getDate(),
             total: item.worktime 
-                    ? ((item.quittingtime.getTime() - item.worktime.getTime()) / (1000*60*60) -1).toFixed(2)
+                    ? ((item.quittingtime.getTime() - item.worktime.getTime()) / (1000*60*60) -1).toFixed(1)
                     : null
         }
     })
@@ -24,7 +24,7 @@ const WorkingWeekBarChart = () => {
                 theme={{
                     labels: {
                         text: {
-                            fontSize: 14,
+                            fontSize: 16,
                         },
                     
                     }
