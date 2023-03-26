@@ -1,0 +1,80 @@
+.vacation-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+}
+
+.vacation-modal-section {
+  width: 450px;
+  height: 200px;
+  margin: 0 auto;
+  border: 0.1px solid #707070;
+  border-radius: 1rem;
+  background-color: #fff;
+  animation: modal-show 0.3s;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.vacation-modal.vacation-modal-openModal {
+  display: flex;
+  align-items: center;
+  animation: modal-bg-show 0.3s;
+}
+
+.vacation-modal-section header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 14px;
+}
+
+.vacation-modal-title {
+  font-size: 17px;
+  margin-left: 7px;
+}
+
+.vacation-modal button {
+  outline: none;
+  cursor: pointer;
+  border: 0;
+}
+
+.vacation-modal-close {
+  background-color: transparent;
+  font-size: 40px;
+}
+
+
+.vacation-modal-area main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

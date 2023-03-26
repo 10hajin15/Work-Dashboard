@@ -42,7 +42,7 @@ const Commute = () => {
   const [isAttendance, setIsAttendance] = useState(false);
   const [isWorkDone, setIsWorkDone] = useState(false);
   const [attendTime, setAttendTime] = useState();
-  const [absenceTime, setAbsenceTime] = useState();
+  const [quittingTime, setQuittingTime] = useState();
   const [workTime, setWorkTime] = useState(0);
 
   const onClickAttendance = () => {
@@ -58,7 +58,7 @@ const Commute = () => {
     setIsWorkDone(!isWorkDone);
     const now = new Date();
     const workDoneMinutes = now.getMinutes() < 10 ? `0${now.getMinutes()}` : now.getMinutes()
-    setAbsenceTime(`${now.getHours()}:${workDoneMinutes}`);
+    setQuittingTime(`${now.getHours()}:${workDoneMinutes}`);
   }
 
   return (
@@ -70,7 +70,7 @@ const Commute = () => {
       <div className="work-attendance-area">
         <div className="work-time">
           {isAttendance ? <span className="attend-time">출근 {attendTime}</span> : <span className="attend-time item-hide">출근 20:20</span> }
-          {isWorkDone ? <span className="absence-time">   / 퇴근 {absenceTime}</span>  : <span className="absence-time item-hide"> / 출근 20:20</span>}
+          {isWorkDone ? <span className="quitting-time">   / 퇴근 {quittingTime}</span>  : <span className="quitting-time item-hide"> / 출근 20:20</span>}
         </div>
         <div className="attend-or-no">
           {isAttendance
@@ -78,7 +78,7 @@ const Commute = () => {
             : <AttendanceButton className="attend" onClick={onClickAttendance}>출근하기</AttendanceButton>
           }
           {isAttendance && !isWorkDone
-            ? <AttendanceButton className="absence" onClick={onClickWorkDone}>퇴근하기</AttendanceButton>
+            ? <AttendanceButton className="quitting" onClick={onClickWorkDone}>퇴근하기</AttendanceButton>
             : null
           }
           {

@@ -1,23 +1,14 @@
 import { useState } from "react";
 import styled from "styled-components";
+import ModalVacation from "./ModalVacation";
 import './Vacation.css';
 import VacationChart from "./VacationChart";
 
-const VacationRequest = styled.div`{
-  background-color: white;
-  width: 45%;
-  border-radius: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.12);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-`
 
 const VacationContents = styled.div`{
   display: flex;
-  justify-content: center;
+  align-item: center;
+  margin-bottom: 7px;
 }
 `
 
@@ -28,6 +19,7 @@ const VacationButton = styled.button`{
   height: 35px;
   cursor: pointer;
   margin-top: 25px;
+  margin-left: 45px;
   font-weight: 200;
   border-radius: 8px;
   border: none;
@@ -38,27 +30,37 @@ const VacationButton = styled.button`{
 }
 `
 
-const Vacation = () => {
+const Vacation = ({range}) => {
   const [vacationDays, setVacationDays] = useState(15);
+  const [modalVacationOpen, setModalVacationOpen] = useState(false);
+
+  const openModal = () => {
+    setModalVacationOpen(true);
+  }
+
 
   return (
-    <VacationRequest>
-      <div className="vacation-title">연차 현황</div>
+    <>
+    <div className="vacation-contents">
       <VacationContents>
         <div className="vacation-chart">
           <VacationChart color="#ED2E5C" percent={(vacationDays/15).toFixed(2)} size="150px"/>
         </div>
         <div className="vacation-contents-text">
           <div>
+            <div className="vacation-title">연차 현황</div>
             <span className="remain-vacation-days">{vacationDays}일</span>
             <span className="vacation-days"> / 15일</span>
           </div>
-          <div>
-            <VacationButton>연차 신청</VacationButton>
-          </div>
         </div>
       </VacationContents>
-    </VacationRequest>
+      <div>
+        <VacationButton onClick={() => openModal()}>연차 신청</VacationButton>
+        <span className="vacation-exp">달력에서 날짜를 선택한 후 연차 신청을 눌러주세요!</span>
+      </div>
+    </div>
+    <ModalVacation open={modalVacationOpen} setModalVacationOpen={setModalVacationOpen} vacationDays={vacationDays} setVacationDays={setVacationDays}></ModalVacation>
+    </>
   );
 };
 
