@@ -1,7 +1,7 @@
 import Vacation from "./Vacation";
 import styled from "styled-components";
 import CalendarArea from "./CalendarArea";
-import { addDays, format } from 'date-fns';
+import { addDays } from 'date-fns';
 
 import './Vacation.css';
 import { useState } from "react";

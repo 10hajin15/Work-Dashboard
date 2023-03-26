@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import ModalTodo from "./ModalTodo";
 import ScheduleItem from "./ScheduleItem";

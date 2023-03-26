@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import './sideContents.css';
 import styled from "styled-components";
 import CommuteChart from "./CommuteChart";
