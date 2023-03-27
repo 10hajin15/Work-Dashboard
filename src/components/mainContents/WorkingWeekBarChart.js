@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { ResponsiveBar } from '@nivo/bar';
-import worktime from '../../data/worktime.js';
+import workTimeData from '../../data/workTimeData.js';
 
 const WorkingWeekBarChart = () => {
-    const workingdata = worktime.map((item) => {
+    const workingdata = workTimeData.map((item) => {
         return {
             date: item.date.getDate(),
             total: item.worktime 

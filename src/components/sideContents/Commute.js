@@ -1,7 +1,8 @@
 import { useState } from "react";
 import './sideContents.css';
 import styled from "styled-components";
-import CommuteChart from "./CommuteChart";
+//import CommuteChart from "./CommuteChart";
+import workTimeData from "../../data/workTimeData";
 
 const CoummuteArea = styled.div`{
   background-color: #1479FB;
@@ -45,6 +46,7 @@ const Commute = () => {
   const [quittingTime, setQuittingTime] = useState();
   const [workTime, setWorkTime] = useState(0);
 
+  console.log('초기', workTimeData)
   const onClickAttendance = () => {
     setIsAttendance(!isAttendance);
     const now = new Date();
@@ -52,6 +54,13 @@ const Commute = () => {
     setAttendTime(`${now.getHours()}:${attendMinutes}`);
     setWorkTime(now.getHours());
     alert('오늘도 좋은 하루 보내세요! 화이팅 💪');
+    workTimeData.push({
+      'date': now,
+      'worktime': now,
+      'quittingtime': null,
+      'isVacation' : false
+    })
+    console.log('추가', workTimeData)
   }
 
   const onClickWorkDone = () => {
@@ -59,13 +68,17 @@ const Commute = () => {
     const now = new Date();
     const workDoneMinutes = now.getMinutes() < 10 ? `0${now.getMinutes()}` : now.getMinutes()
     setQuittingTime(`${now.getHours()}:${workDoneMinutes}`);
+    const modificationQuittingTime = workTimeData.pop();
+    modificationQuittingTime.quittingtime = now;
+    workTimeData.push(modificationQuittingTime);
+    console.log('수정', workTimeData)
   }
 
   return (
     <CoummuteArea>
       <div className="workman-name">김인턴 님</div>
       <div className="commute-chart">
-        <CommuteChart color="#6EFACC" percent={workTime ? ((now.getHours() - workTime)/8).toFixed(2) : 0} size="100px" />
+        {/*<CommuteChart color="#6EFACC" percent={workTime ? ((now.getHours() - workTime)/8).toFixed(2) : 0} size="100px" />*/}
       </div>
       <div className="work-attendance-area">
         <div className="work-time">

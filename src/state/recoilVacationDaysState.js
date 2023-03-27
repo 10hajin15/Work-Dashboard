@@ -1,8 +1,8 @@
 import { atom } from 'recoil';
-import worktime from '../data/worktime.js'
+import workTimeData from '../data/workTimeData.js'
 
 const recoilData = []
-worktime.filter((item) => {
+workTimeData.filter((item) => {
   if(item.isVacation) {
     recoilData.push(item.date)
   };

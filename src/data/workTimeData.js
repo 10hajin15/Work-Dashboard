@@ -1,4 +1,4 @@
-const worktime = [
+const workTimeData = [
   {
     'date': new Date('2023-03-13'),
     'worktime': new Date('2023-03-13 09:00'),
@@ -31,4 +31,4 @@ const worktime = [
   }
 ];
 
-export default worktime;
+export default workTimeData;

@@ -6,7 +6,7 @@ import VacationChart from "./VacationChart";
 
 import { useRecoilState } from 'recoil';
 import { recoilVacationDaysState } from "../../state/recoilVacationDaysState";
-import worktime from "../../data/worktime";
+import workTimeData from "../../data/workTimeData";
 
 const VacationContents = styled.div`{
   display: flex;
@@ -34,7 +34,7 @@ const VacationButton = styled.button`{
 `
 
 const Vacation = ({range, setRange}) => {
-  const settedVacationDays = (worktime.filter((item) => item.isVacation === true)).length
+  const settedVacationDays = (workTimeData.filter((item) => item.isVacation === true)).length
   const [vacationDays, setVacationDays] = useState(15-settedVacationDays);
 
 
