@@ -38,6 +38,8 @@ const AttendanceButton = styled.div`{
 `
 
 const Commute = () => {
+  const now = new Date();
+  
   const [isAttendance, setIsAttendance] = useState(false);
   const [isWorkDone, setIsWorkDone] = useState(false);
   const [attendTime, setAttendTime] = useState();
@@ -58,6 +60,7 @@ const Commute = () => {
       'quittingtime': null,
       'isVacation' : false
     })
+    console.log('추가', workTimeData)
   }
 
   const onClickWorkDone = () => {
@@ -68,6 +71,7 @@ const Commute = () => {
     const modificationQuittingTime = workTimeData.pop();
     modificationQuittingTime.quittingtime = now;
     workTimeData.push(modificationQuittingTime);
+    console.log('수정', workTimeData)
   }
 
   return (
