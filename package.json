@@ -1,5 +1,4 @@
 {
-  "homepage": "https://10hajin15.github.io/work-dashboard",
   "name": "work-dashboard",
   "version": "0.1.0",
   "private": true,
@@ -47,5 +46,6 @@
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
-  }
+  },
+  "homepage": "https://10hajin15.github.io/work-dashboard"
 }
