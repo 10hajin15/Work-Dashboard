@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/work-dashboard/static/css/main.c3e3c887.css",
+    "main.js": "/work-dashboard/static/js/main.96a572b6.js",
+    "index.html": "/work-dashboard/index.html",
+    "main.c3e3c887.css.map": "/work-dashboard/static/css/main.c3e3c887.css.map",
+    "main.96a572b6.js.map": "/work-dashboard/static/js/main.96a572b6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c3e3c887.css",
+    "static/js/main.96a572b6.js"
+  ]
+}
